@@ -1,0 +1,40 @@
+body{
+    background-image: url("/images/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+form{
+    background-color: white;
+    width: 40%;
+    padding: 1%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: grey;
+    border-radius: 20px;
+}
+.f1 input{
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 2px solid rgb(122, 118, 118);
+    border-radius: 7px;
+}
+label{
+    font-size: 16px;
+}
+input[type=date]{
+    padding: 3px;
+    margin: 8px;
+    border: 2px solid rgb(122, 118, 118);
+    border-radius: 7px;
+}
+input[type=submit]{
+    background-color: royalblue;
+    color: white;
+    border-radius: 7px;
+    width: 20%;
+    height: 40px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
