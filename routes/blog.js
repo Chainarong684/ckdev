@@ -6,8 +6,12 @@ router.get('/', function(req, res, next) {
   res.render('blog');
 });
 
-router.get('/add', function(req, res, next) {
+router.get('/addBlog', function(req, res, next) {
   res.render('addBlog');
+});
+
+router.post('/addBlog', function(req, res, next) {
+  
 });
 
 
