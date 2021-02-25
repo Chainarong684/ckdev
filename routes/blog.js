@@ -22,19 +22,40 @@ router.post('/addBlog', [
   check('article', 'Please input some text').notEmpty()
 ], function (req, res, next) {
 
+  // console.log(req.body.title);
+  // console.log(req.body.article);
+  // console.log(req.body.category);
+
   const results = validationResult(req);
 
   var resultError = results.errors;
 
   if (!results.isEmpty()) {
-    console.log(results);
+    // console.log(results);
 
     res.render('addBlog', {resultError});
+  } else {
+
+    data = new BlogsDb({
+    
+      title:req.body.title,
+      article:req.body.article,
+      category:req.body.category
+  
+    });
+
+    BlogsDb.createBlog(data, function(err) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.redirect('/blog');
+      }
+
+    })
+
   }
 
-  console.log(req.body.title);
-  console.log(req.body.article);
-  console.log(req.body.category);
+  
 
 });
 

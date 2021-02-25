@@ -21,10 +21,14 @@ const blogSchema = new schema({
         type:String,
         required: true
     },
-    article: {
+    category: {
         type:String,
         required: true
     }
 });
 
-const mySchema = module.exports = mongoose.model('myDbModule', blogSchema);
+module.exports = mongoose.model('helloBlogs', blogSchema);
+
+module.exports.createBlog = function(newBlog, callback) {
+    newBlog.save(callback)
+};
