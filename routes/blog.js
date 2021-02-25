@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+const BlogsDb = require('../models/db');
+
 const {
   body,
   validationResult,
@@ -16,7 +18,7 @@ router.get('/addBlog', function (req, res, next) {
 });
 
 router.post('/addBlog', [
-  check('articleName', 'You must input Article Name').notEmpty(),
+  check('title', 'You must input Article Name').notEmpty(),
   check('article', 'Please input some text').notEmpty()
 ], function (req, res, next) {
 
@@ -24,16 +26,16 @@ router.post('/addBlog', [
 
   var resultError = results.errors;
 
-  // console.log(resultError);
-
   if (!results.isEmpty()) {
     console.log(results);
 
     res.render('addBlog', {resultError});
   }
 
-  console.log(req.body.articleName);
+  console.log(req.body.title);
   console.log(req.body.article);
+  console.log(req.body.category);
+
 });
 
 

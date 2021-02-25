@@ -27,14 +27,22 @@
         <form action="/blog/addBlog" method="post">
             <div class="form-group">
                 <label for="">ชื่อบทความ</label>
-                <input type="text" name="articleName" id="input" class="form-control">
+                <input type="text" name="title" id="" class="form-control">
             </div>
             <div class="form-group">
                 <label for="">รายละเอียด</label>
                 <textarea name="article" id="" cols="30" rows="10" class="form-control"></textarea>
             </div>
             <div class="form-group">
-                <input type="submit" value="บันทึก" class="btn btn-primary">
+                <label for="">หมวดหมู่</label>
+                <select name="category" id="" class="form-control">
+                    <option value="ภาพยนตร์">ภาพยนตร์</option>
+                    <option value="เพลง">เพลง</option>
+                    <option value="นิยาย">นิยาย</option>
+                </select>
+            </div>
+            <div>
+                <input type="submit" name="" id="" value="บันทึก" class="btn btn-primary">
             </div>
         </form>
     </div>
