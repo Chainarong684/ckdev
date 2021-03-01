@@ -12,12 +12,28 @@ const {
 router.get('/', function (req, res, next) {
   BlogsDb.getAllBlogs(function (err, data) {
     if (err) throw err
-    res.render('blog', {resultBlogs: data});
+    res.render('blog', {
+      resultBlogs: data
+    });
   });
 });
 
 router.get('/addBlog', function (req, res, next) {
   res.render('addBlog');
+});
+
+router.get('/delete/:id', function (req, res, next) {
+  console.log('Find Id : ', req.params.id);
+
+  BlogsDb.deleteDocument(req.params.id, function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('Deleted !!');
+      res.redirect('/blog');
+    }
+  });
+
 });
 
 router.post('/addBlog', [
@@ -36,7 +52,9 @@ router.post('/addBlog', [
   if (!results.isEmpty()) {
     // console.log(results);
 
-    res.render('addBlog', {resultError});
+    res.render('addBlog', {
+      resultError
+    });
   } else {
 
     data = new BlogsDb({
@@ -51,6 +69,7 @@ router.post('/addBlog', [
       if (err) {
         console.log(err);
       } else {
+
         res.redirect('/blog');
         console.log('Done already save to db');
       }

@@ -37,3 +37,8 @@ module.exports.getAllBlogs = function(data) {
 
     saveCollections.find(data)
 };
+
+module.exports.deleteDocument = function(id, callback) {
+
+    saveCollections.findByIdAndDelete(id, callback)
+};
