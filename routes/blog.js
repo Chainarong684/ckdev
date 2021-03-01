@@ -10,7 +10,10 @@ const {
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-  res.render('blog');
+  BlogsDb.getAllBlogs(function (err, data) {
+    if (err) throw err
+    res.render('blog', {resultBlogs: data});
+  });
 });
 
 router.get('/addBlog', function (req, res, next) {
@@ -37,25 +40,26 @@ router.post('/addBlog', [
   } else {
 
     data = new BlogsDb({
-    
-      title:req.body.title,
-      article:req.body.article,
-      category:req.body.category
-  
+
+      title: req.body.title,
+      article: req.body.article,
+      category: req.body.category
+
     });
 
-    BlogsDb.createBlog(data, function(err) {
+    BlogsDb.createBlog(data, function (err) {
       if (err) {
         console.log(err);
       } else {
         res.redirect('/blog');
+        console.log('Done already save to db');
       }
 
     })
 
   }
 
-  
+
 
 });
 

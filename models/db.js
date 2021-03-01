@@ -27,8 +27,13 @@ const blogSchema = new schema({
     }
 });
 
-module.exports = mongoose.model('helloBlogs', blogSchema);
+const saveCollections = module.exports = mongoose.model('helloBlogs', blogSchema);
 
 module.exports.createBlog = function(newBlog, callback) {
     newBlog.save(callback)
+};
+
+module.exports.getAllBlogs = function(data) {
+
+    saveCollections.find(data)
 };

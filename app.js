@@ -9,7 +9,7 @@ var blogRouter = require('./routes/blog');
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var aboutRouter = require('./routes/about');
-var storeRouter = require('./routes/store');
+var usefulRouter = require('./routes/useful');
 
 var app = express();
 
@@ -30,7 +30,7 @@ app.use('/blog', blogRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/about', aboutRouter);
-app.use('/store', storeRouter);
+app.use('/useful', usefulRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

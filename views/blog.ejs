@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CKDEV</title>
 </head>
+
 <body>
     <%- include navbar %>
 
     <div class="container">
         <h1>Welcome to CK Blogs</h1>
-        <a href="/blog/addBlog">เขียนบทความ</a>
+        <h5><a href="/blog/addBlog">เขียนบทความ</a></h5>
+        <hr>
     </div>
 
+    <div class="container">
+
+        <h3>บทความทั้งหมด</h3>
+        <p>คลิ๊กที่ชื่อบทความเพื่ออ่าน</p>
+        
+        <% Object.values(resultBlogs).forEach(function(blog) { %>
+            <ul>
+                <li>
+                    <h4><a href=""><%= blog.title %></a></h4>
+                    <p><span>หมวดหมู่ : </span><%= blog.category %></p>
+                    <hr>
+                </li>
+            </ul>
+            
+        <% }) %>
+
+
+    </div>
 </body>
+
 </html>
