@@ -27,7 +27,7 @@ const blogSchema = new schema({
     }
 });
 
-const saveCollections = module.exports = mongoose.model('helloBlogs', blogSchema);
+const myCollections = module.exports = mongoose.model('helloBlogs', blogSchema);
 
 module.exports.createBlog = function(newBlog, callback) {
     newBlog.save(callback)
@@ -35,10 +35,20 @@ module.exports.createBlog = function(newBlog, callback) {
 
 module.exports.getAllBlogs = function(data) {
 
-    saveCollections.find(data)
+    myCollections.find(data)
 };
 
 module.exports.deleteDocument = function(id, callback) {
 
-    saveCollections.findByIdAndDelete(id, callback)
+    myCollections.findByIdAndDelete(id, callback)
+};
+
+module.exports.updateDocument = function(id, callback) {
+
+    var query = {
+        _id:id
+    }
+
+    myCollections.findOne(query, callback)
+
 };

@@ -28,8 +28,8 @@
                 <li>
                     <h4><a href=""><%= blog.title %></a></h4>
                     <p><span>หมวดหมู่ : </span><%= blog.category %></p>
-                    <a href="">แก้ไข</a>&nbsp;
-                    <a href="/blog/delete/<%= blog._id %>" onclick="return confirm('กรุณายืนยันการลบ')">ลบ</a>
+                    <a href="/blog/edit/<%= blog._id %>">แก้ไข</a>&nbsp;
+                    <a href="/blog/delete/<%= blog._id %>" onclick="return confirm('คุณกำลังจะลบบทความ <%= blog.title %> แน่ใจหรือไม่ ?')">ลบ</a>
                     <hr>
                 </li>
             </ul>

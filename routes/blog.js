@@ -36,6 +36,19 @@ router.get('/delete/:id', function (req, res, next) {
 
 });
 
+router.get('/edit/:id', function (req, res, next) {
+  console.log('Find Id : ', req.params.id);
+
+  BlogsDb.updateDocument(req.params.id, function (err, data) {
+    if (err) throw err
+    console.log(data);
+    res.render('editBlog', {
+      resultFind: data
+    });
+  });
+
+});
+
 router.post('/addBlog', [
   check('title', 'You must input Article Name').notEmpty(),
   check('article', 'Please input some text').notEmpty()

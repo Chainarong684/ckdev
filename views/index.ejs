@@ -4,6 +4,7 @@
 <head>
   <title>CKDEV</title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <!-- <script src="/src/cookie.js"></script> -->
 </head>
 
 <body>
@@ -15,19 +16,31 @@
     <h2>Hello World</h4>
   </div>
 
-  <center>
-    <div class="cookie-container">
+  <div class="cookie-container">
 
-      <span>
-        POSPOS มีการใช้งานคุ้กกี้ เพื่อพัฒนาเว็บไซต์และระบบการใช้ของคุณ <a href="">อ่านเพิ่มเติม!</a>
-      </span>
+    <span>
+      POSPOS มีการใช้งานคุ้กกี้ เพื่อพัฒนาเว็บไซต์และระบบการใช้ของคุณ <a href="">อ่านเพิ่มเติม!</a>
+    </span>
 
-      <button class="cookie-btn">ตกลง</button>
+    <button class="cookie-btn">ตกลง</button>
 
-    </div>
-  </center>
+  </div>
 
-  <script src="../src/cookie.js"></script>
+  <script>
+    const cookieContainer = document.querySelector(".cookie-container");
+    const cookieButton = document.querySelector(".cookie-btn");
+
+    cookieButton.addEventListener("click", () => {
+      cookieContainer.classList.remove("active");
+      localStorage.setItem("cookieSaved", "true");
+    });
+
+    setTimeout(() => {
+      if (!localStorage.getItem("cookieSaved")) {
+        cookieContainer.classList.add("active");
+      }
+    }, 1500);
+  </script>
 </body>
 
 </html>

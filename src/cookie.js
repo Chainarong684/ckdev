@@ -3,11 +3,11 @@ const cookieButton = document.querySelector(".cookie-btn");
 
 cookieButton.addEventListener("click", () => {
   cookieContainer.classList.remove("active");
-  localStorage.setItem("cookieBannerDisplayed", "true");
+  localStorage.setItem("cookieSaved", "true");
 });
 
 setTimeout(() => {
-  if (!localStorage.getItem("cookieBannerDisplayed")) {
+  if (!localStorage.getItem("cookieSaved")) {
     cookieContainer.classList.add("active");
   }
 }, 2000);
