@@ -16,6 +16,7 @@ form[type=register]{
     font-family: Arial, Helvetica, sans-serif;
     color: grey;
     border-radius: 20px;
+    box-shadow: 0 0 8px black;
 }
 .f1 input{
     width: 70%;
