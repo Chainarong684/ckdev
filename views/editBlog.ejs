@@ -24,26 +24,39 @@
             <% }) %>
         </ul>
         <!-- <% } %> -->
-        
+
         <form action="/blog/addBlog" method="post">
             <div class="form-group">
                 <label for="">ชื่อบทความ</label>
-                <input type="text" name="title" id="" class="form-control">
+                <input type="text" name="title" id="" class="form-control" value="<%= resultFind.title %>">
             </div>
             <div class="form-group">
                 <label for="">รายละเอียด</label>
-                <textarea name="article" id="" cols="30" rows="10" class="form-control"></textarea>
+                <textarea name="article" id="" cols="30" rows="10"
+                    class="form-control"><%= resultFind.article %></textarea>
             </div>
             <div class="form-group">
                 <label for="">หมวดหมู่</label>
                 <select name="category" id="" class="form-control">
-                    <option value="ภาพยนตร์">ภาพยนตร์</option>
-                    <option value="เพลง">เพลง</option>
-                    <option value="นิยาย">นิยาย</option>
+                    <option value="ภาพยนตร์"
+                    <% if (resultFind.category == "ภาพยนตร์") { %>
+                        selected
+                        <% } %>>ภาพยนตร์
+                    </option>
+                    <option value="เพลง"
+                    <% if (resultFind.category == "เพลง") { %>
+                        selected
+                        <% } %>>เพลง
+                    </option>
+                    <option value="นิยาย"
+                    <% if (resultFind.category == "นิยาย") { %>
+                        selected
+                        <% } %>>นิยาย
+                    </option>
                 </select>
             </div>
             <div>
-                <input type="submit" name="" id="" value="บันทึก" class="btn btn-primary my-3">
+                <input type="submit" name="" id="" value="อัพเดท" class="btn btn-primary my-3">
             </div>
         </form>
     </div>
