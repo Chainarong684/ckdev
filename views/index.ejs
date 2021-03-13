@@ -4,19 +4,40 @@
 <head>
   <title>CKDEV</title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
-  <!-- <script src="/src/cookie.js"></script> -->
+
+  <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+
+
 </head>
 
 <body>
   <%- include navbar %>
+  <%- include alert-event %>
 
   <div class="container">
     <h1>Welcome to my world</h1>
     <p>Chainarong Kieatmingmongkol</p>
     <h2>Hello World</h4>
+      <img src="/public/images/ic_cookieConsent.png" alt="">
+  </div>
+
+  <div class="owl-carousel">
+    <div> 1 </div>
+    <div> 2 </div>
+    <div> 3 </div>
   </div>
 
   <%- include cookie-consent %>
 </body>
+
+<script>
+  $(document).ready(function () {
+    $(".owl-carousel").owlCarousel();
+  });
+</script>
+
+<script src="jquery.min.js"></script>
+<script src="owlcarousel/owl.carousel.min.js"></script>
 
 </html>

@@ -1,0 +1,99 @@
+<style>
+    .alert-box {
+        z-index: 10;
+        background-color: #10a4e9;
+        color: rgb(255, 255, 255);
+        width: 300px;
+        height: 180px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px black;
+        padding: 10px;
+        text-align: center;
+        margin: 10px auto;
+        font-size: 16px;
+        position: fixed;
+        top: -100%;
+        left: 0;
+        right: 0;
+        transition: 1000ms;
+    }
+
+    .alert-box.active1 {
+        top: 65px;
+    }
+
+    .alert-box.active2 {
+        top: 100px;
+    }
+
+    .alert-box img {
+        width: 150px;
+        height: auto;
+    }
+
+    .alert-box a {
+        color: #d8342f;
+    }
+
+    #close-alert {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: -15px;
+        right: -15px;
+    }
+
+</style>
+
+<div class="alert-box">
+    <p>ราคาโปรโมชั่นประจำเดือน</p>
+    <img src="/images/ic_close.svg" alt="" id="close-alert">
+    <a href="/promotions" target="_blank" rel="noopener noreferrer"><img src="" alt=""></a>
+    <p>สามารถดูโปรโมชั่นปัจจุบันได้ที่นี้ <br> <a href="/promotions" target="_blank" rel="noopener noreferrer"> >>>คลิ๊กเลย<<< </a></p>
+</div>
+
+<script>
+    
+    const alertBox = document.querySelector(".alert-box");
+    const closeBox = document.querySelector("#close-alert");
+
+    if (window.location.href === 'https://pospos.co:3002/package') {
+        
+        let nowStatus = 'A';
+        addAlert(nowStatus);
+        delAlert(nowStatus);
+        
+    } else {
+
+        nowStatus = 'B';
+        addAlert(nowStatus);
+        delAlert(nowStatus);
+
+    };
+
+    function addAlert(status) {
+        if (status === 'A') {
+            setTimeout(() => {
+                alertBox.classList.add("active1");
+            }, 3000);
+        } else {
+            setTimeout(() => {
+              alertBox.classList.add("active2");
+             }, 3000);
+        };
+    };
+
+    function delAlert(status) {
+        if (status === 'A') {
+            closeBox.addEventListener('click', () => {
+                alertBox.classList.remove("active1");
+            });
+        } else {
+            closeBox.addEventListener('click', () => {
+                alertBox.classList.remove("active2");
+            });
+        };
+    };
+
+    
+</script>
