@@ -1,0 +1,74 @@
+<style>
+    .cookie-container {
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        width: 60%;
+        height: 80px;
+        border-radius: 10px;
+        margin: 50px;
+        box-shadow: 0px 0px 10px rgb(27, 27, 27, 0.5);
+
+        position: fixed;
+        bottom: -100%;
+        left: 0;
+        right: 0;
+        transition: 400ms;
+    }
+
+    .cookie-container {
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        width: 50%;
+        height: 80px;
+        border-radius: 10px;
+        margin: 50px auto 14px auto;
+        box-shadow: 0px 0px 10px rgb(255, 255, 255);
+        text-align: center;
+        padding: 15px;
+        position: fixed;
+        bottom: -100%;
+        left: 0;
+        right: 0;
+        transition: 400ms;
+    }
+
+    .cookie-container.active {
+        bottom: 0;
+    }
+
+    .cookie-btn {
+        background: #1895e8;
+        color: #f5f6fa;
+        border-radius: 8px;
+        width: 100px;
+        height: 50px;
+        margin-left: 90px;
+    }
+</style>
+
+<div class="cookie-container">
+
+    <span>
+        <img src="/images/ic_cookieConsent.png" alt="" width="50" height="50">
+        ยินดีต้อนรับเข้าสู่โลกส่วนตัวของข้าพเจ้า กรุณายอมรับโยบายและข้อตกลง <a href="/about">อ่านเพิ่มเติม!</a>
+    </span>
+
+    <button class="cookie-btn">ตกลง</button>
+
+</div>
+
+<script>
+    const cookieContainer = document.querySelector(".cookie-container");
+    const cookieButton = document.querySelector(".cookie-btn");
+
+    cookieButton.addEventListener("click", () => {
+        cookieContainer.classList.remove("active");
+        localStorage.setItem("cookieSaved", "true");
+    });
+
+    setTimeout(() => {
+        if (!localStorage.getItem("cookieSaved")) {
+            cookieContainer.classList.add("active");
+        }
+    }, 1500);
+</script>

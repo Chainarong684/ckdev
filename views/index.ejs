@@ -16,32 +16,7 @@
     <h2>Hello World</h4>
   </div>
 
-  <div class="cookie-container">
-
-    <span>
-      <img src="/images/ic_cookieConsent.png" alt="" width="50" height="50">
-      ยินดีต้อนรับเข้าสู่โลกส่วนตัวของข้าพเจ้า กรุณายอมรับโยบายและข้อตกลง <a href="/about">อ่านเพิ่มเติม!</a>
-    </span>
-
-    <button class="cookie-btn">ตกลง</button>
-
-  </div>
-
-  <script>
-    const cookieContainer = document.querySelector(".cookie-container");
-    const cookieButton = document.querySelector(".cookie-btn");
-
-    cookieButton.addEventListener("click", () => {
-      cookieContainer.classList.remove("active");
-      localStorage.setItem("cookieSaved", "true");
-    });
-
-    setTimeout(() => {
-      if (!localStorage.getItem("cookieSaved")) {
-        cookieContainer.classList.add("active");
-      }
-    }, 1500);
-  </script>
+  <%- include cookie-consent %>
 </body>
 
 </html>
